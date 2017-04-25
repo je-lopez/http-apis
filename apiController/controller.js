@@ -1,124 +1,61 @@
 let request = require('request')
 let rp = require('request-promise')
 let parser = require('body-parser')
-
-let oauthOptions = {
-  method: 'POST',
-  uri: 'https://www.googleapis.com/oauth2/v4/token',
-  body: "client_secret=jSrjgy2KaKSNIQcCTdcF3ODx&grant_type=refresh_token&refresh_token=1%2FKgZJxvXFStTjiZjJvzccppBMl1bB5nusttxAOYhrmG4&client_id=927807271432-803ccgbu7dpgvpg9kffggfqou15q7al2.apps.googleusercontent.com",
-  headers: {
-    'User-Agent': 'Request-Promise',
-    'Authorization': 'Bearer ya29.Gls2BOhmJGsI9W_wY3lhaaSXkKvUHKN7fCNKiqJUjHPdVtBzEkGndl1ifkpbd0YYrUTYwK9ueeypgAHcxJcw_BEskYY8wn5ocUSfUXjtiTHQGjTmj406D7CZbwmB',
-    'content-type': 'application/x-www-form-urlencoded'
-  }
-}
-
-let options = {
-  uri: 'https://www.googleapis.com/surveys/v2/surveys',
-  headers: {
-    'User-Agent': 'Request-Promise',
-    'Authorization': 'Bearer ya29.Gls2BOhmJGsI9W_wY3lhaaSXkKvUHKN7fCNKiqJUjHPdVtBzEkGndl1ifkpbd0YYrUTYwK9ueeypgAHcxJcw_BEskYY8wn5ocUSfUXjtiTHQGjTmj406D7CZbwmB'
-  },
-  json: true
-}
-
-
-let questions =  {
-  method: 'POST',
-  uri: 'https://www.googleapis.com/surveys/v2/surveys',
-  headers: {
-    'User-Agent': 'Request-Promise',
-    'Content-type': 'application/json',
-    'Authorization': 'Bearer ya29.Gls2BOhmJGsI9W_wY3lhaaSXkKvUHKN7fCNKiqJUjHPdVtBzEkGndl1ifkpbd0YYrUTYwK9ueeypgAHcxJcw_BEskYY8wn5ocUSfUXjtiTHQGjTmj406D7CZbwmB'
-  },
-  body: {
-    'owners': ['jelopez0005@gmail.com'],
-    'wantedResponseCount': 100,
-    'audience': {
-      'country': 'US',
-      'languages': ['en-US']
-    },
-    'questions': [
-      {
-        'question': 'What is your favorite programming language?',
-        'type': 'singleAnswer',
-        'answers': [
-          'Python',
-          'Ruby',
-          'JavaScript',
-          'Swift'
-        ]
-      },
-      {
-        'question': 'How many hours do you code each day?',
-        'type': 'singleAnswer',
-        'answers': [
-          '4',
-          '6',
-          '8',
-          'More than 8'
-        ]
-      },
-      {
-        'question': 'What is your favorite API?',
-        'type': 'singleAnswer',
-        'answers': [
-          'Google Surveys API',
-          'Facebook Live API',
-          'Amazon Web Services API',
-          'Twitter API'
-        ]
-      },
-      {
-        'question': 'What is your favorite taco spot?',
-        'type': 'singleAnswer',
-        'answers': [
-          '29th St and Fruitvale Ave',
-          'Tacos Mi Rancho',
-          'Cholita Linda',
-          'Taco Bell'
-        ]
-      },
-      {
-        'question': 'What is your favorite type of coffee?',
-        'type': 'singleAnswer',
-        'answers': [
-          'Drip',
-          'French Press',
-          'Espresso',
-          'Iced'
-        ]
-      }
-    ]
-  },
-  json: true
-}
-
+let options = require('./apiControllerOptions/controllerOptions').options
 
 const apiController = {
   getAll: () => {
-    rp(oauthOptions)
+    return rp(options.oauthOptions)
       .then(resp => {
-        const token = JSON.parse(resp).access_token
-        options.headers.Authorization = 'Bearer ' + token
-        return rp(options)
+        options.getAllSurveys.headers.Authorization = 'Bearer ' + JSON.parse(resp).access_token
+        return rp(options.getAllSurveys)
+      })
+  },
+
+  getOneSurvey: (surveyId) => {
+    return rp(options.oauthOptions)
+      .then(resp => {
+        options.getOneSurvey.headers.Authorization = 'Bearer ' + JSON.parse(resp).access_token
+        options.getOneSurvey.uri = options.getOneSurvey.uri + '/' + surveyId
+        return rp(options.getOneSurvey)
+      })
+  },
+
+  addSurvey: () => {
+    rp(options.oauthOptions)
+      .then(resp => {
+        options.questions.headers.Authorization = 'Bearer ' + JSON.parse(resp).access_token
+        return rp(options.questions)
+      })
+      .then((data) => {
+        console.log(JSON.stringify(data))
+      })
+  },
+
+  deleteSurvey: (surveyId) => {
+    return rp(options.oauthOptions)
+      .then(resp => {
+        options.removeSurvey.headers.Authorization = 'Bearer ' + JSON.parse(resp).access_token
+        options.removeSurvey.uri = options.removeSurvey.uri + '/' + surveyId
+        return rp(options.removeSurvey)
+      })
+  },
+
+  update: (surveyId, email) => {
+    rp(options.oauthOptions)
+      .then(resp => {
+        options.updateOwner.uri = options.updateOwner.uri + '/' + surveyId
+        options.updateOwner.body.owners.push(email)
+        options.updateOwner.headers.Authorization = 'Bearer ' + JSON.parse(resp).access_token
+        return rp(options.updateOwner)
       })
       .then(console.log)
-  },
-  addSurvey: () => {
-    rp(oauthOptions)
-    .then(resp => {
-      const token = JSON.parse(resp).access_token
-      questions.headers.Authorization = 'Bearer ' + token
-      console.log('before we send')
-      return rp(questions)
-    })
-    .then((data) => {
-      console.log('smaller parts after!')
-      // JSON.stringify(data)
-      console.log(JSON.stringify(data))
-    })
   }
 }
 
-apiController.addSurvey()
+// apiController.getAll()
+// apiController.addSurvey()
+// apiController.deleteSurvey('67tpbo4pv7pfpymtbnpy3pcu5y')
+// apiController.getOneSurvey('ix2wqmhpscb2dlzqnuqkc2jiom')
+// apiController.update('ix2wqmhpscb2dlzqnuqkc2jiom', 'ben@gmail.com')
+module.exports = apiController
