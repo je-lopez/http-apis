@@ -55,7 +55,7 @@ const apiController = {
 
 // apiController.getAll()
 // apiController.addSurvey()
-// apiController.deleteSurvey('67tpbo4pv7pfpymtbnpy3pcu5y')
-// apiController.getOneSurvey('ix2wqmhpscb2dlzqnuqkc2jiom')
-// apiController.update('ix2wqmhpscb2dlzqnuqkc2jiom', 'ben@gmail.com')
+// apiController.deleteSurvey('6ipc6gegdzsydczd5567wkmknm')
+// apiController.getOneSurvey('6ipc6gegdzsydczd5567wkmknm')
+// apiController.update('6ipc6gegdzsydczd5567wkmknm', 'ben@gmail.com')
 module.exports = apiController

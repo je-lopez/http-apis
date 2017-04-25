@@ -32,9 +32,12 @@ app.get('/survey/:id', (req, res) => {
     })
 })
 
-app.delete('/survey/delete/:id', (req, res) => {
+app.get('/survey/remove/:id', (req, res) => {
   let id = req.params.id
   apiController.deleteSurvey(id)
+  .then(data => {
+    res.redirect('/')
+  })
 })
 
 app.listen(3000, () => {

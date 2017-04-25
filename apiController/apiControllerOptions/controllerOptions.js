@@ -91,7 +91,7 @@ let options = {
   },
 
   removeSurvey: {
-    method: 'DE',
+    method: 'DELETE',
     uri: 'https://www.googleapis.com/surveys/v2/surveys',
     headers: {
       'User-Agent': 'Request-Promise',
