@@ -10,6 +10,7 @@ let apiController = require('./apiController/controller')
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
@@ -21,7 +22,7 @@ app.get('/', (req, res) => {
 app.get('/survey', (req, res) => {
   apiController.getAll()
     .then(data => {
-      res.render('index.pug', { data: data.resources } )
+      res.render('surveys.pug', { data: data.resources } )
   })
 })
 
@@ -41,6 +42,11 @@ app.get('/survey/remove/:id', (req, res) => {
   })
 })
 
+app.use(function(req, res, next) {
+  let err = new Error('Survey Not Found')
+  err.status = 404
+  next(err)
+})
 
 app.listen(3000, () => {
   console.log('listening on port 3000')
