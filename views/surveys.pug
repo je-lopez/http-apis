@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 All Surveys
+  ul
+    each resource in data
+      li= resource.surveyUrlId
+      li= resource.title
+      li= resource.state

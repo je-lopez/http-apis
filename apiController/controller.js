@@ -10,6 +10,9 @@ const apiController = {
         options.getAllSurveys.headers.Authorization = 'Bearer ' + JSON.parse(resp).access_token
         return rp(options.getAllSurveys)
       })
+      .catch(error => {
+        return error
+      })
   },
 
   getOneSurvey: (surveyId) => {
@@ -19,9 +22,9 @@ const apiController = {
         options.getOneSurvey.uri = options.getOneSurvey.uri + '/' + surveyId
         return rp(options.getOneSurvey)
       })
-        .catch( error => {
-          return error
-        })
+      .catch(error => {
+        return JSON.stringify(error)
+      })
   },
 
   addSurvey: () => {
@@ -56,7 +59,7 @@ const apiController = {
   }
 }
 
-apiController.getAll()
+// apiController.getAll()
 // apiController.addSurvey()
 // apiController.deleteSurvey('iyka6rz4pvsi4dddopjw5zgfoa')
 // apiController.getOneSurvey('iyka6rz4pvsi4dddopjw5zgfoa')
