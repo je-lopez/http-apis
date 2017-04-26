@@ -19,6 +19,9 @@ const apiController = {
         options.getOneSurvey.uri = options.getOneSurvey.uri + '/' + surveyId
         return rp(options.getOneSurvey)
       })
+        .catch( error => {
+          return error
+        })
   },
 
   addSurvey: () => {
@@ -53,9 +56,9 @@ const apiController = {
   }
 }
 
-// apiController.getAll()
+apiController.getAll()
 // apiController.addSurvey()
-// apiController.deleteSurvey('67tpbo4pv7pfpymtbnpy3pcu5y')
-// apiController.getOneSurvey('ix2wqmhpscb2dlzqnuqkc2jiom')
-// apiController.update('ix2wqmhpscb2dlzqnuqkc2jiom', 'ben@gmail.com')
+// apiController.deleteSurvey('iyka6rz4pvsi4dddopjw5zgfoa')
+// apiController.getOneSurvey('iyka6rz4pvsi4dddopjw5zgfoa')
+// apiController.update('iyka6rz4pvsi4dddopjw5zgfoa', 'ben@gmail.com')
 module.exports = apiController
