@@ -1,3 +1,23 @@
+// class GoogleSurveyAPIRequest() {
+//   constructor({ method="GET" }) {
+//     this.method = method
+//     this.base_uri = 'https://www.googleapis.com/surveys/v2/surveys'
+//     this.headers = {
+//       'User-Agent': 'Request-Promise',
+//       'Authorization': 'Bearer ya29.Gls2BOhmJGsI9W_wY3lhaaSXkKvUHKN7fCNKiqJUjHPdVtBzEkGndl1ifkpbd0YYrUTYwK9ueeypgAHcxJcw_BEskYY8wn5ocUSfUXjtiTHQGjTmj406D7CZbwmB'
+//     }
+//     this.json = true
+//   }
+
+//   set surveyId(id) {
+//     this.surveyId = id
+//   }
+
+//   get uri() {
+//     return this.base_uri + this.surveyId
+//   }
+// }
+
 let options = {
   oauthOptions: {
     method: 'POST',
