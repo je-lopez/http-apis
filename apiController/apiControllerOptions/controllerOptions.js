@@ -1,7 +1,6 @@
 let options = {
   oauthOptions: {
     method: 'POST',
-    // uri: 'https://www.googleapis.com/oauth2/v4/token'
     uri: process.env.GOOGLE_API_URI + '/oauth2/v4/token'
     ,
     body: process.env.GOOGLE_SECRETS,

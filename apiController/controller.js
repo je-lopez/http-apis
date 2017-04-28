@@ -2,7 +2,6 @@ let request = require('request')
 let rp = require('request-promise')
 let parser = require('body-parser')
 let options = require('./apiControllerOptions/controllerOptions').options
-// let GoogleSurveyAPIRequest = require('./apiControllerOptions/controllerOptions').GoogleSurveyAPIRequest
 
 const apiController = {
   getAll: () => {
@@ -16,16 +15,12 @@ const apiController = {
   getOneSurvey: (surveyId) => {
     return rp(options.oauthOptions)
       .then(resp => {
-        // const apiReq = new GoogleSurveyAPIRequest({method: 'GET'})
-        // apiReq.surveyId(surveyId)
-
         options.getOneSurvey.headers.Authorization = 'Bearer ' + JSON.parse(resp).access_token
 
         const requestParams = Object.assign({}, options.getOneSurvey)
         requestParams.uri = requestParams.uri + '/' + surveyId
         return rp(requestParams)
       })
-      // .then(console.log)
   },
 
   addSurvey: () => {

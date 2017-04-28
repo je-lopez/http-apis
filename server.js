@@ -7,6 +7,7 @@ let logger = require('morgan')
 let path = require('path')
 let app = express()
 let apiController = require('./apiController/controller')
+// require('./public/javascripts/formatSurvey')
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
@@ -15,13 +16,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
-
-// app.use((req, res, next) => {
-//   if req.cookie.expired?
-//     refresh oauth
-//   else
-//     next()
-// })
 
 app.get('/', (req, res) => {
   res.render('index.pug')
@@ -35,14 +29,15 @@ app.get('/survey', (req, res) => {
 })
 
 app.get('/survey/add', (req, res) => {
-  res.render('addSurvey.pug')
+  // if (req.query) {
+  //   formatQuestions(req.query)
+  //   res.render('/survey')
+  // }
+  // else {
+  //   res.render('addSurvey.pug')
+  // }
+    res.render('addSurvey.pug')
 })
-
-// const googleErrorHandler = (error) => {
-//   if (error.status === 404)
-//         res.status(404)
-//         res.render('error.pug' { message: error.message })
-// }
 
 app.get('/survey/:id', (req, res) => {
   let id = req.params.id
