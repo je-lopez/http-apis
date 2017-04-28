@@ -27,11 +27,14 @@ app.get('/', (req, res) => {
 })
 
 app.get('/survey', (req, res) => {
-
   apiController.getAll()
     .then(data => {
       res.render('surveys.pug', { data: data.resources } )
-  })
+    })
+})
+
+app.get('/survey/add', (req, res) => {
+  res.render('addSurvey.pug')
 })
 
 // const googleErrorHandler = (error) => {

@@ -2,14 +2,98 @@ html, body {
   height: 100%;
   margin: 0 auto;
   width: 960px;
+  background-color: rgb(250, 250, 250);
 }
-.headers {
-  display: flex;
-  justify-content: center;
+
+a {
+  font-size: 1.2rem;
+  text-decoration: none;
 }
+
+a:hover {
+  color: blue;
+}
+
+a:active {
+  margin-top: -3px;
+}
+
 h1 {
-  border: 1px solid;
+  letter-spacing: 2px;
+  margin: 40px 0;
 }
+
 h2 {
   color: red;
+}
+
+.img-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-image {
+  display: flex;
+  height: 60%;
+  width: 60%;
+}
+
+.headers {
+  display: flex;
+  font-family: 'Inconsolata', monospace;
+  justify-content: center;
+}
+
+form, .home-image {
+  align-self: center;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 400px;
+}
+
+.demo-card-wide.mdl-card {
+  margin: 20px auto 0;
+  width: 532px;
+}
+
+.mdl-card__title-text {
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.demo-card-wide > .mdl-card__title {
+  color: black;
+  display: block;
+  height: 300px;
+}
+
+.short {
+  height: 200px;
+}
+
+.tall {
+  height: 350px;
+  padding-top: 15px;
+}
+
+input {
+  margin: 5px;
+}
+
+.demo-card-wide > .mdl-card__menu {
+  color: black;
+}
+
+.answer-area {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+footer {
+  height: 50px;
 }

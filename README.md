@@ -51,7 +51,7 @@ For guidance and support, start with the Resources provided.
 - [ ] The web server makes use of the following response headers
     - [ ] Location
     - [ ] Set-Cookie
-    // - [ ] Refresh 
+    - [ ] Refresh 
     - [ ] Access-Control-Allow-Origin
     - [x] Content-Length
 - [ ] Examples of each response header usage are listed and linked to in the README

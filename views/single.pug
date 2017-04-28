@@ -1,9 +1,21 @@
 extends layout
 
 block content
-  h1 Single Survey
-  h2= data.title
-  ul
-    each item in data.questions
-      li= item.question
-      li= item.answers
+  h1.headers= data.title
+  each item in data.questions
+    .demo-card-wide.mdl-card.mdl-shadow--2dp
+      .mdl-card__title
+        h2.mdl-card__title-text= item.question
+        .answer-area
+          input#list-option-1.mdl-radio__button(type='radio', name='options', value='1')
+          .mdl-card__supporting-text= item.answers[0]
+        .answer-area
+          input#list-option-1.mdl-radio__button(type='radio', name='options', value='1')
+          .mdl-card__supporting-text= item.answers[1]
+        .answer-area
+          input#list-option-1.mdl-radio__button(type='radio', name='options', value='1')
+          .mdl-card__supporting-text= item.answers[2]
+        .answer-area
+          input#list-option-1.mdl-radio__button(type='radio', name='options', value='1')
+          .mdl-card__supporting-text= item.answers[3]
+  footer

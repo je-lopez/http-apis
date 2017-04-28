@@ -1,9 +1,11 @@
 extends layout
 
 block content
-  h1 All Surveys
+  h1.headers Surveys
   ul
     each resource in data
-      li= resource.surveyUrlId
-      li= resource.title
-      li= resource.state
+      .short.demo-card-wide.mdl-card.mdl-shadow--2dp
+        .mdl-card__title
+          h2.headers.mdl-card__title-text= resource.title
+          .mdl-card__supporting-text
+            a.headers(href='http://localhost:3000/survey/' + resource.surveyUrlId) View Survey
