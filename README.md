@@ -69,7 +69,7 @@ For guidance and support, start with the Resources provided.
     - [x] Create a resource
     - [x] Update a resource
     - [x] Delete a resource
-- [ ] Examples of each request type to the external API are listed and linked to in the README
+- [x] Examples of each request type to the external API are listed and linked to in the README: apiController/controller.js
 - [ ] The best resources you find for learning testing are added to a file resources.md
 - [x] The artifact produced is properly licensed, preferably with the MIT license
 
@@ -77,12 +77,12 @@ For guidance and support, start with the Resources provided.
 
 - [ ] Web server is written using only the core Node.js modules (instead of Express, use the built-in HTTP module)
 - [x] Web server uses OAuth to authenticate with the external API
-- [ ] OAuth routes are listed and linked to in the README
+- [x] OAuth routes are listed and linked to in the README: apiController/apiControllerOptions/controllerOptions.js
 - [ ] The web server exposes a JSON API at /api
 - [x] API supports all CRUD actions for a resource (Create, Read, Update, Delete)
-- [ ] API follows a the RESTful design convention
+- [x] API follows a the RESTful design convention
 - [x] API doesn’t use database persistence (an in-memory store is fine)
-- [ ] Basic documentation for the API and each route is included in the README
+- [x] Basic documentation for the API and each route is included in the README: [here](https://developers.google.com/surveys/)
 
 ## Resources
 
