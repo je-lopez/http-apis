@@ -2,65 +2,66 @@ extends layout
 
 block content
   h1.headers Create a New Survey
-  form(action='#')
-  | Title: 
-  input(style='display:inline', type='text', name='firstname', placeholder='Your Title')
-  br
-  br
-  .tall.demo-card-wide.mdl-card.mdl-shadow--2dp
-    | Question 1: 
-    input(type='text', name='question1', placeholder='Your Question')
-    br
-    | Answers:
-    input(type='text', name='question1', placeholder='First Response')
-    input(type='text', name='question1', placeholder='Second Response')
-    input(type='text', name='question1', placeholder='Third Response')
-    input(type='text', name='question1', placeholder='Fourth Response')
+  form.addForm(action='#')
+    .title.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+      input#title-id.mdl-textfield__input
+      label.mdl-textfield__label(for='title-id') Your Title
     br
     br
-  .tall.demo-card-wide.mdl-card.mdl-shadow--2dp
-    | Question 2: 
-    input(type='text', name='question2', placeholder='Your Question')
-    br
-    | Answers:
-    input(type='text', name='question1', placeholder='First Response')
-    input(type='text', name='question1', placeholder='Second Response')
-    input(type='text', name='question1', placeholder='Third Response')
-    input(type='text', name='question1', placeholder='Fourth Response')
-    br
-    br
-  .tall.demo-card-wide.mdl-card.mdl-shadow--2dp
-    | Question 3: 
-    input(type='text', name='question3', placeholder='Your Question')
-    br
-    | Answers:
-    input(type='text', name='question1', placeholder='First Response')
-    input(type='text', name='question1', placeholder='Second Response')
-    input(type='text', name='question1', placeholder='Third Response')
-    input(type='text', name='question1', placeholder='Fourth Response')
-    br
-    br
-  .tall.demo-card-wide.mdl-card.mdl-shadow--2dp
-    | Question 4: 
-    input(type='text', name='question4', placeholder='Your Question')
-    br
-    | Answers:
-    input(type='text', name='question1', placeholder='First Response')
-    input(type='text', name='question1', placeholder='Second Response')
-    input(type='text', name='question1', placeholder='Third Response')
-    input(type='text', name='question1', placeholder='Fourth Response')
-    br
-    br
-  .tall.demo-card-wide.mdl-card.mdl-shadow--2dp
-    | Question 5: 
-    input(type='text', name='question5', placeholder='Your Question')
-    br
-    | Answers:
-    input(type='text', name='question1', placeholder='First Response')
-    input(type='text', name='question1', placeholder='Second Response')
-    input(type='text', name='question1', placeholder='Third Response')
-    input(type='text', name='question1', placeholder='Fourth Response')
-    br
-    br
-    |  
-  input(type='submit')
+    .tall.demo-card-wide.mdl-card.mdl-shadow--2dp
+      | Question 1: 
+      input.mdl-textfield__input(type='text', name='question1', placeholder='Your Question')
+      br
+      | Answers:
+      input.mdl-textfield__input(type='text', name='1answer1', placeholder='First Choice')
+      input.mdl-textfield__input(type='text', name='1answer2', placeholder='Second Choice')
+      input.mdl-textfield__input(type='text', name='1answer3', placeholder='Third Choice')
+      input.mdl-textfield__input(type='text', name='1answer4', placeholder='Fourth Choice')
+      br
+      br
+    .tall.demo-card-wide.mdl-card.mdl-shadow--2dp
+      | Question 2: 
+      input.mdl-textfield__input(type='text', name='question2', placeholder='Your Question')
+      br
+      | Answers:
+      input.mdl-textfield__input(type='text', name='2answer1', placeholder='First Choice')
+      input.mdl-textfield__input(type='text', name='2answer2', placeholder='Second Choice')
+      input.mdl-textfield__input(type='text', name='2answer3', placeholder='Third Choice')
+      input.mdl-textfield__input(type='text', name='2answer4', placeholder='Fourth Choice')
+      br
+      br
+    .tall.demo-card-wide.mdl-card.mdl-shadow--2dp
+      | Question 3: 
+      input.mdl-textfield__input(type='text', name='question3', placeholder='Your Question')
+      br
+      | Answers:
+      input.mdl-textfield__input(type='text', name='3answer1', placeholder='First Choice')
+      input.mdl-textfield__input(type='text', name='3answer2', placeholder='Second Choice')
+      input.mdl-textfield__input(type='text', name='3answer3', placeholder='Third Choice')
+      input.mdl-textfield__input(type='text', name='3answer4', placeholder='Fourth Choice')
+      br
+      br
+    .tall.demo-card-wide.mdl-card.mdl-shadow--2dp
+      | Question 4: 
+      input.mdl-textfield__input(type='text', name='question4', placeholder='Your Question')
+      br
+      | Answers:
+      input.mdl-textfield__input(type='text', name='4answer1', placeholder='First Choice')
+      input.mdl-textfield__input(type='text', name='4answer2', placeholder='Second Choice')
+      input.mdl-textfield__input(type='text', name='4answer3', placeholder='Third Choice')
+      input.mdl-textfield__input(type='text', name='4answer4', placeholder='Fourth Choice')
+      br
+      br
+    .tall.demo-card-wide.mdl-card.mdl-shadow--2dp
+      | Question 5: 
+      input.mdl-textfield__input(type='text', name='question5', placeholder='Your Question')
+      br
+      | Answers:
+      input.mdl-textfield__input(type='text', name='5answer1', placeholder='First Choice')
+      input.mdl-textfield__input(type='text', name='5answer2', placeholder='Second Choice')
+      input.mdl-textfield__input(type='text', name='5answer3', placeholder='Third Choice')
+      input.mdl-textfield__input(type='text', name='5answer4', placeholder='Fourth Choice')
+      br
+      br
+      |  
+    button.sendForm.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored.mdl-js-ripple-effect.mdl-button-accent(type='submit') Create Form

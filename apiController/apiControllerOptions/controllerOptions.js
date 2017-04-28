@@ -1,51 +1,33 @@
-// class GoogleSurveyAPIRequest() {
-//   constructor({ method="GET" }) {
-//     this.method = method
-//     this.base_uri = 'https://www.googleapis.com/surveys/v2/surveys'
-//     this.headers = {
-//       'User-Agent': 'Request-Promise',
-//       'Authorization': 'Bearer ya29.Gls2BOhmJGsI9W_wY3lhaaSXkKvUHKN7fCNKiqJUjHPdVtBzEkGndl1ifkpbd0YYrUTYwK9ueeypgAHcxJcw_BEskYY8wn5ocUSfUXjtiTHQGjTmj406D7CZbwmB'
-//     }
-//     this.json = true
-//   }
-
-//   set surveyId(id) {
-//     this.surveyId = id
-//   }
-
-//   get uri() {
-//     return this.base_uri + this.surveyId
-//   }
-// }
-
 let options = {
   oauthOptions: {
     method: 'POST',
-    uri: 'https://www.googleapis.com/oauth2/v4/token',
-    body: "client_secret=jSrjgy2KaKSNIQcCTdcF3ODx&grant_type=refresh_token&refresh_token=1%2FKgZJxvXFStTjiZjJvzccppBMl1bB5nusttxAOYhrmG4&client_id=927807271432-803ccgbu7dpgvpg9kffggfqou15q7al2.apps.googleusercontent.com",
+    // uri: 'https://www.googleapis.com/oauth2/v4/token'
+    uri: process.env.GOOGLE_API_URI + '/oauth2/v4/token'
+    ,
+    body: process.env.GOOGLE_SECRETS,
     headers: {
       'User-Agent': 'Request-Promise',
-      'Authorization': 'Bearer ya29.Gls2BOhmJGsI9W_wY3lhaaSXkKvUHKN7fCNKiqJUjHPdVtBzEkGndl1ifkpbd0YYrUTYwK9ueeypgAHcxJcw_BEskYY8wn5ocUSfUXjtiTHQGjTmj406D7CZbwmB',
+      'Authorization': process.env.GOOGLE_BEARER_TOKEN,
       'content-type': 'application/x-www-form-urlencoded'
     }
   },
 
   getAllSurveys: {
-    uri: 'https://www.googleapis.com/surveys/v2/surveys',
+    uri: process.env.GOOGLE_API_URI + '/surveys/v2/surveys',
     headers: {
       'User-Agent': 'Request-Promise',
-      'Authorization': 'Bearer ya29.Gls2BOhmJGsI9W_wY3lhaaSXkKvUHKN7fCNKiqJUjHPdVtBzEkGndl1ifkpbd0YYrUTYwK9ueeypgAHcxJcw_BEskYY8wn5ocUSfUXjtiTHQGjTmj406D7CZbwmB'
+      'Authorization': process.env.GOOGLE_BEARER_TOKEN
     },
     json: true
   },
 
   questions: {
     method: 'POST',
-    uri: 'https://www.googleapis.com/surveys/v2/surveys',
+    uri: process.env.GOOGLE_API_URI + '/surveys/v2/surveys',
     headers: {
       'User-Agent': 'Request-Promise',
       'Content-type': 'application/json',
-      'Authorization': 'Bearer ya29.Gls2BOhmJGsI9W_wY3lhaaSXkKvUHKN7fCNKiqJUjHPdVtBzEkGndl1ifkpbd0YYrUTYwK9ueeypgAHcxJcw_BEskYY8wn5ocUSfUXjtiTHQGjTmj406D7CZbwmB'
+      'Authorization': process.env.GOOGLE_BEARER_TOKEN
     },
     body: {
       'owners': ['jelopez0005@gmail.com'],
@@ -113,31 +95,31 @@ let options = {
 
   removeSurvey: {
     method: 'DELETE',
-    uri: 'https://www.googleapis.com/surveys/v2/surveys',
+    uri: process.env.GOOGLE_API_URI + '/surveys/v2/surveys',
     headers: {
       'User-Agent': 'Request-Promise',
-      'Authorization': 'Bearer ya29.Gls2BOhmJGsI9W_wY3lhaaSXkKvUHKN7fCNKiqJUjHPdVtBzEkGndl1ifkpbd0YYrUTYwK9ueeypgAHcxJcw_BEskYY8wn5ocUSfUXjtiTHQGjTmj406D7CZbwmB'
+      'Authorization': process.env.GOOGLE_BEARER_TOKEN
     }
   },
 
   getOneSurvey: {
-    uri: 'https://www.googleapis.com/surveys/v2/surveys',
+    uri: process.env.GOOGLE_API_URI + '/surveys/v2/surveys',
     headers: {
       'User-Agent': 'Request-Promise',
-      'Authorization': 'Bearer ya29.Gls2BOhmJGsI9W_wY3lhaaSXkKvUHKN7fCNKiqJUjHPdVtBzEkGndl1ifkpbd0YYrUTYwK9ueeypgAHcxJcw_BEskYY8wn5ocUSfUXjtiTHQGjTmj406D7CZbwmB'
+      'Authorization': process.env.GOOGLE_BEARER_TOKEN
     }
   },
 
   updateOwner: {
     method: 'PUT',
-    uri: 'https://www.googleapis.com/surveys/v2/surveys',
+    uri: process.env.GOOGLE_API_URI + '/surveys/v2/surveys',
     headers: {
       'User-Agent': 'Request-Promise',
-      'Authorization': 'Bearer ya29.Gls2BOhmJGsI9W_wY3lhaaSXkKvUHKN7fCNKiqJUjHPdVtBzEkGndl1ifkpbd0YYrUTYwK9ueeypgAHcxJcw_BEskYY8wn5ocUSfUXjtiTHQGjTmj406D7CZbwmB',
+      'Authorization': process.env.GOOGLE_BEARER_TOKEN,
       'content-type': 'application/json'
     },
     body: {
-      'owners': ['jelopez0005@gmail.com']
+      'owners': [process.env.OWNER_EMAIL]
     },
     json: true
   }

@@ -1,5 +1,6 @@
 let express = require('express')
 let request = require('request')
+require('dotenv').config()
 let rp = require('request-promise')
 let bodyParser = require('body-parser')
 let logger = require('morgan')
