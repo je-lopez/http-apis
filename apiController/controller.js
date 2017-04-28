@@ -2,6 +2,7 @@ let request = require('request')
 let rp = require('request-promise')
 let parser = require('body-parser')
 let options = require('./apiControllerOptions/controllerOptions').options
+// let GoogleSurveyAPIRequest = require('./apiControllerOptions/controllerOptions').GoogleSurveyAPIRequest
 
 const apiController = {
   getAll: () => {
@@ -10,21 +11,21 @@ const apiController = {
         options.getAllSurveys.headers.Authorization = 'Bearer ' + JSON.parse(resp).access_token
         return rp(options.getAllSurveys)
       })
-      .catch(error => {
-        return error
-      })
   },
 
   getOneSurvey: (surveyId) => {
     return rp(options.oauthOptions)
       .then(resp => {
+        // const apiReq = new GoogleSurveyAPIRequest({method: 'GET'})
+        // apiReq.surveyId(surveyId)
+
         options.getOneSurvey.headers.Authorization = 'Bearer ' + JSON.parse(resp).access_token
-        options.getOneSurvey.uri = options.getOneSurvey.uri + '/' + surveyId
-        return rp(options.getOneSurvey)
+
+        const requestParams = Object.assign({}, options.getOneSurvey)
+        requestParams.uri = requestParams.uri + '/' + surveyId
+        return rp(requestParams)
       })
-      .catch(error => {
-        return JSON.stringify(error)
-      })
+      // .then(console.log)
   },
 
   addSurvey: () => {

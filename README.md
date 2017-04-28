@@ -27,16 +27,16 @@ For guidance and support, start with the Resources provided.
     - [x] POST
     - [x] PUT/PATCH
     - [x] DELETE
-- [ ] Examples of each HTTP verb usage are listed and linked to in the README
+- [x] Examples of each HTTP verb usage are listed and linked to in the README: apiController/apiControllerOptions/controllerOptions.js
 - [ ] The web server makes use of the following response status codes
-    - [ ] 200 (OK)
+    - [x] 200 (OK)
     - [ ] 201 (Created)
-    - [ ] 400 (Bad Request)
+    - [x] 400 (Bad Request)
     - [ ] 301 (Moved Permanently)
     - [ ] 403 (Forbidden)
-    - [ ] 404 (Not Found)
-    - [ ] 500 (Internal Server Error)
-- [ ] Examples of each status code usage are listed and linked to in the README
+    - [x] 404 (Not Found)
+    - [x] 500 (Internal Server Error)
+- [x] Examples of each status code usage are listed and linked to in the README: server.js
 - [x] The web server uses URL components in routing and responding
     - [x] Different paths trigger different routes
     - [x] Values from the URL query string are used in a route
@@ -47,11 +47,11 @@ For guidance and support, start with the Resources provided.
     - [x] Content Type
     - [x] Authorization
     - [ ] Cookie
-- [ ] Examples of each request header usage are listed and linked to in the README
+- [x] Examples of each request header usage are listed and linked to in the README: apiController/apiControllerOptions/controllerOptions.js
 - [ ] The web server makes use of the following response headers
     - [ ] Location
     - [ ] Set-Cookie
-    - [ ] Refresh
+    - [ ] Refresh 
     - [ ] Access-Control-Allow-Origin
     - [x] Content-Length
 - [ ] Examples of each response header usage are listed and linked to in the README
@@ -60,10 +60,10 @@ For guidance and support, start with the Resources provided.
     - [x] Static HTML
     - [x] Static JSON
     - [x] Dynamic resources (content of response changes based on query params, request headers, and/or application state)
-- [ ] Examples of each response type are listed and linked to in the README
-- [ ] Example of a raw HTTP request and the server’s raw HTTP response are included in the README
-    - [ ] Examples show full HTTP message header
-    - [ ] Examples show full HTTP message body
+- [x] Examples of each response type are listed and linked to in the README: server.js
+- [x] Example of a raw HTTP request and the server’s raw HTTP response are included in the README: apiController/apiControllerOptions/controllerOptions.js
+    - [x] Examples show full HTTP message header
+    - [x] Examples show full HTTP message body
 - [x] The web server makes the following request types to an external API
     - [x] Get a resource
     - [x] Create a resource
